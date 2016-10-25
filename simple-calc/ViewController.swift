@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    // check behavior for clear and =
+    // modify enter state depending on rpn or pn
+    @IBOutlet weak var rPStack: UILabel!
     @IBOutlet weak var notationStatus: UILabel!
     @IBOutlet weak var currentOperator: UILabel!
     @IBOutlet weak var numberView: UILabel!
@@ -51,6 +55,7 @@ class ViewController: UIViewController {
         } else {
             numberView.text = "0.0"
         }
+        updateRPStack()
     }
     
     @IBAction func pressedNumber(_ sender: AnyObject) {
@@ -62,7 +67,14 @@ class ViewController: UIViewController {
         }
         
         if rP {
-            
+            // must form a number until enter is pressed
+            let cur = Double(numberView.text!)!
+            if dotPressed {
+                number =  cur + number / pow(10.0, Double(dotPlace))
+                dotPlace += 1
+            } else {
+                number = cur * 10 + number
+            }
         } else {
             if operatorPressed {
                 operatorPressed = false
@@ -73,17 +85,24 @@ class ViewController: UIViewController {
                 number = doubles.popLast()! * 10 + number
             }
             doubles.append(number)
-            numberView.text = "\(number)"
         }
+        
+        numberView.text = "\(number)"
     }
     
     @IBAction func pressedOperator(_ sender: AnyObject) {
+        pressedOperator = sender.currentTitle!!
+        currentOperator.text = pressedOperator
         if rP {
-            
+            // operation happens instantly with values in doubles
+            if doubles.count >= 2 {
+                calculate(sender)
+            }
+            // update rpstack
+            updateRPStack()
+            numberView.text = "0.0"
         } else {
             operatorPressed = true
-            pressedOperator = sender.currentTitle!!
-            currentOperator.text = pressedOperator
             if dotPressed {
                 dotPressed = false
             }
@@ -110,6 +129,25 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func enter(_ sender: AnyObject) {
+        if rP {
+            // finishes a number
+            doubles.append(Double(numberView.text!)!)
+            numberView.text = "0.0"
+            // update rpstack
+            updateRPStack()
+        }
+    }
+    
+    func updateRPStack() {
+        var rpstacks = ""
+        for num in doubles {
+            rpstacks += "\(num) "
+        }
+        rPStack.text = rpstacks
+    }
+    
     @IBAction func calculate(_ sender: AnyObject) {
         
         currentOperator.text = "="
@@ -128,7 +166,9 @@ class ViewController: UIViewController {
             let num1 = doubles.popLast()!
             result = num1 / num2
         case "%":
-            result = fmod(doubles[0], doubles[1])
+            let num2 = doubles.popLast()!
+            let num1 = doubles.popLast()!
+            result = fmod(num1, num2)
         case "count":
             result = Double(doubles.count)
         case "avg":
@@ -140,8 +180,6 @@ class ViewController: UIViewController {
             if doubles.count == 1 {
                 result = factorial(number: doubles.popLast()!)
             }
-        case "↵":
-            doubles.append(3.4)
         default:
             numberView.text = "unknown operand"
         }
@@ -160,11 +198,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
 
 /*
- 
-     
+   
      classic "text field and buttons" display
      ten digit buttons (0, 1, 2, ... 9)
      operations add, sub, mul, div, mod
@@ -172,18 +208,21 @@ class ViewController: UIViewController {
      when user enters number, then operation, then number, then equals, calculate result
 
      
-     Add a few new (multi-operand) operations in
+        Add a few new (multi-operand) operations in
      "count": count the number of input
      10 count 4 count 25 equals => 3
      "avg": average all the inputs
      2 avg 4 avg 6 avg 8 avg 10 equals => 6
-     "fact": calculate factorial
-     5 fact => 60
-     fact can only accept one number
+     what happens when
+     5 avg 4 avg 2 + 1 ???
+     5 count 3 count 2 + 1 ???
+     
+        "fact": calculate factorial
+        5 fact => 60
+        fact can only accept one number
 
- 
-     Extra credit: 2 points
-     support decimal operations
+        Extra credit: 2 points
+        support decimal operations
      Extra extra credit: 2 points
      add a toggle between traditional and RPN functionality
      RPN = Reverse Polish Notation
@@ -191,8 +230,6 @@ class ViewController: UIViewController {
      22 7 + (outputs 29)
      1 2 3 4 5 count (outputs 5)
      you will need some kind of "enter" key to indicate when the user is done entering a number
-     
-     
      
  */
 }

@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6J-Uz-8KN">
-                                <frame key="frameInset" minX="284" minY="454" width="65" height="65"/>
+                                <frame key="frameInset" minX="284" minY="455" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.64870878730000003" green="0.83883509860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -231,6 +231,9 @@
                                 <color key="backgroundColor" red="0.64870878730000003" green="0.83883509860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="↵"/>
+                                <connections>
+                                    <action selector="enter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="afx-Q3-siJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqa-fg-7Tg">
                                 <frame key="frameInset" minX="305" minY="49" width="54" height="21"/>
@@ -274,6 +277,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWB-1Z-VQb">
+                                <frame key="frameInset" minX="16" minY="20" width="333" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -282,11 +292,12 @@
                         <outlet property="notationButton" destination="XWA-Q1-H9l" id="jgP-PL-N3Z"/>
                         <outlet property="notationStatus" destination="qcF-pJ-qcL" id="LZm-ez-vkj"/>
                         <outlet property="numberView" destination="9o4-Mf-ZEu" id="GYa-0C-LhW"/>
+                        <outlet property="rPStack" destination="fWB-1Z-VQb" id="z7h-h5-d87"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="123.68815592203899"/>
+            <point key="canvasLocation" x="119.2" y="127.28635682158921"/>
         </scene>
     </scenes>
     <resources>

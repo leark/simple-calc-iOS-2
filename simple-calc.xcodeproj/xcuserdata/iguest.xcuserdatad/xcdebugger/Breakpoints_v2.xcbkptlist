@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499062842.635159"
+            timestampString = "499067014.332677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "pressedNumber(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499063352.372631"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "calculate(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499063352.372631"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "calculate(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499062536.936944"
+            timestampString = "499066075.108223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "clear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499062842.635159"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "notationSwap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499062842.635159"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "pressedDot(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499063352.372631"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "calculate(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499062984.963922"
+            timestampString = "499066478.69369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "pressedNumber(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,12 +138,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "simple-calc/ViewController.swift"
-            timestampString = "499063355.969296"
+            timestampString = "499067557.361568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "calculate(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "simple-calc/ViewController.swift"
+            timestampString = "499067557.361568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "enter(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
