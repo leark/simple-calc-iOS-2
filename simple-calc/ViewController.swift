@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     // need to refactor
     @IBAction func clear(_ sender: AnyObject) {
-        if sender.currentTitle!! == "cc" {
+        if sender.currentTitle!! != "c" {
             doubles.removeAll()
             result = 0.0
             operatorPressed = true
@@ -55,6 +55,11 @@ class ViewController: UIViewController {
     
     @IBAction func pressedNumber(_ sender: AnyObject) {
         var number = Double(sender.currentTitle!!)!
+        
+        if lastResult && !operatorPressed && !dotPressed {
+            lastResult = false
+            clear(sender)
+        }
         
         if rP {
             
@@ -111,13 +116,17 @@ class ViewController: UIViewController {
         
         switch pressedOperator {
         case "+":
-            result = doubles[0] + doubles[1]
+            result = doubles.popLast()! + doubles.popLast()!
         case "-":
-            result = doubles[0] - doubles[1]
+            let num2 = doubles.popLast()!
+            let num1 = doubles.popLast()!
+            result = num1 - num2
         case "*":
-            result = doubles[0] * doubles[1]
+            result = doubles.popLast()! * doubles.popLast()!
         case "/":
-            result = doubles[0] / doubles[1]
+            let num2 = doubles.popLast()!
+            let num1 = doubles.popLast()!
+            result = num1 / num2
         case "%":
             result = fmod(doubles[0], doubles[1])
         case "count":
@@ -129,7 +138,7 @@ class ViewController: UIViewController {
             result = result / Double(doubles.count)
         case "!":
             if doubles.count == 1 {
-                result = factorial(number: doubles[0])
+                result = factorial(number: doubles.popLast()!)
             }
         case "↵":
             doubles.append(3.4)
