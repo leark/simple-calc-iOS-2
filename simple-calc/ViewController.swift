@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     
     // check behavior for clear and =
-    // modify enter state depending on rpn or pn
+    @IBOutlet weak var enter: UIButton!
+    @IBOutlet weak var equals: UIButton!
     @IBOutlet weak var rPStack: UILabel!
     @IBOutlet weak var notationStatus: UILabel!
     @IBOutlet weak var currentOperator: UILabel!
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        enter.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,10 +124,14 @@ class ViewController: UIViewController {
             rP = false
             notationStatus.text = "Normal"
             notationButton.setImage(normalPolan, for: UIControlState.normal)
+            equals.isEnabled = true
+            enter.isEnabled = false
         } else {
             rP = true
             notationStatus.text = "RPN"
             notationButton.setImage(notNormalPolan, for: UIControlState.normal)
+            equals.isEnabled = false
+            enter.isEnabled = true
         }
     }
     
@@ -149,6 +155,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: AnyObject) {
+        //hotfix 
         
         currentOperator.text = "="
         

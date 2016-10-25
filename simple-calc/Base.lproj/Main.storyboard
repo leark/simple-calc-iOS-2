@@ -289,6 +289,8 @@
                     </view>
                     <connections>
                         <outlet property="currentOperator" destination="wqa-fg-7Tg" id="Yfm-gc-G9e"/>
+                        <outlet property="enter" destination="eOa-Wt-Y0b" id="NJu-gv-js1"/>
+                        <outlet property="equals" destination="e6J-Uz-8KN" id="xzY-Bn-WSF"/>
                         <outlet property="notationButton" destination="XWA-Q1-H9l" id="jgP-PL-N3Z"/>
                         <outlet property="notationStatus" destination="qcF-pJ-qcL" id="LZm-ez-vkj"/>
                         <outlet property="numberView" destination="9o4-Mf-ZEu" id="GYa-0C-LhW"/>
