@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberView: UILabel!
     @IBOutlet weak var notationButton: UIButton!
     var doubles = [Double]()
-    var operatorPressed = true
+    var operatorPressed = false
     var pressedOperator = ""
     var result = 0.0
     var rP = false
@@ -46,10 +46,13 @@ class ViewController: UIViewController {
         if sender.currentTitle!! != "c" {
             doubles.removeAll()
             result = 0.0
-            operatorPressed = true
+            operatorPressed = false
+            dotPressed = false
             currentOperator.text = "--"
             pressedOperator = ""
             numberView.text = "0.0"
+            dotPlace = 1
+            lastResult = false
         } else if operatorPressed {
             operatorPressed = false
             currentOperator.text = "--"
@@ -60,13 +63,19 @@ class ViewController: UIViewController {
         updateRPStack()
     }
     
+    func updateNumberView(number: Double) {
+        if dotPressed {
+            
+        } // else if
+    }
+    
     @IBAction func pressedNumber(_ sender: AnyObject) {
         var number = Double(sender.currentTitle!!)!
         
         if lastResult && !operatorPressed && !dotPressed {
             lastResult = false
             clear(sender)
-        }
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         
         if rP {
             // must form a number until enter is pressed
@@ -78,6 +87,9 @@ class ViewController: UIViewController {
                 number = cur * 10 + number
             }
         } else {
+            if doubles.count == 0 {
+                doubles.append(0.0)
+            }
             if operatorPressed {
                 operatorPressed = false
             } else if dotPressed {
@@ -88,7 +100,6 @@ class ViewController: UIViewController {
             }
             doubles.append(number)
         }
-        
         numberView.text = "\(number)"
     }
     
