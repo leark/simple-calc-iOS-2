@@ -19,16 +19,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentOperator: UILabel!
     @IBOutlet weak var numberView: UILabel!
     @IBOutlet weak var notationButton: UIButton!
-    var doubles = [Double]()
-    var operatorPressed = false
-    var pressedOperator = ""
-    var result = 0.0
-    var rP = false
-    var dotPressed = false
-    var dotPlace = 1
-    var lastResult = false
-    let normalPolan = #imageLiteral(resourceName: "Polandball")
-    let notNormalPolan = #imageLiteral(resourceName: "Polandball2")
+    private var doubles = [Double]()
+    private var operatorPressed = false
+    private var pressedOperator = ""
+    private var result = 0.0
+    private var rP = false
+    private var dotPressed = false
+    private var dotPlace = 1
+    private var lastResult = false
+    private let normalPolan = #imageLiteral(resourceName: "Polandball")
+    private let notNormalPolan = #imageLiteral(resourceName: "Polandball2")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +59,14 @@ class ViewController: UIViewController {
             pressedOperator = ""
         } else {
             numberView.text = "0.0"
+            if !rP {
+                doubles.removeLast()
+            }
         }
         updateRPStack()
     }
     
+    // if want to start the view at 0
     func updateNumberView(number: Double) {
         if dotPressed {
             
@@ -201,7 +205,9 @@ class ViewController: UIViewController {
         default:
             numberView.text = "unknown operand"
         }
-        doubles.removeAll()
+        if !rP {
+            doubles.removeAll()
+        }
         doubles.append(result)
         lastResult = true
         numberView.text = "\(String(result))"
