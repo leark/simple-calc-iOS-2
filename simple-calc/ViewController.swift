@@ -59,7 +59,7 @@ class ViewController: UIViewController {
             pressedOperator = ""
         } else {
             numberView.text = "0.0"
-            if !rP {
+            if !rP && !doubles.isEmpty {
                 doubles.removeLast()
             }
         }
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     @IBAction func pressedNumber(_ sender: AnyObject) {
         var number = Double(sender.currentTitle!!)!
         
-        if lastResult && !operatorPressed && !dotPressed {
+        if lastResult && !operatorPressed && !dotPressed && !rP {
             lastResult = false
             clear(sender)
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -112,7 +112,8 @@ class ViewController: UIViewController {
         currentOperator.text = pressedOperator
         if rP {
             // operation happens instantly with values in doubles
-            if doubles.count >= 2 {
+            if doubles.count >= 2  || pressedOperator == "avg" ||
+                pressedOperator == "count" || pressedOperator == "!" {
                 calculate(sender)
             }
             // update rpstack
