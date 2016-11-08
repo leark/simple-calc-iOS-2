@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     private var lastResult = false
     private let normalPolan = #imageLiteral(resourceName: "Polandball")
     private let notNormalPolan = #imageLiteral(resourceName: "Polandball2")
+    private var history = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,27 +171,31 @@ class ViewController: UIViewController {
         rPStack.text = rpstacks
     }
     
+    // mod by 0 
+    // divide by 0
+    // 
     @IBAction func calculate(_ sender: AnyObject) {
         //hotfix 
         
         currentOperator.text = "="
+    
+        let num2 = doubles.popLast()!
+        let num1 = doubles.popLast()!
         
+        doubles.append(num1)
+        doubles.append(num2)
+ 
         switch pressedOperator {
         case "+":
-            result = doubles.popLast()! + doubles.popLast()!
+            history = history + ""
+            result = num1 + num2
         case "-":
-            let num2 = doubles.popLast()!
-            let num1 = doubles.popLast()!
             result = num1 - num2
         case "*":
-            result = doubles.popLast()! * doubles.popLast()!
+            result = num1 * num2
         case "/":
-            let num2 = doubles.popLast()!
-            let num1 = doubles.popLast()!
             result = num1 / num2
         case "%":
-            let num2 = doubles.popLast()!
-            let num1 = doubles.popLast()!
             result = fmod(num1, num2)
         case "count":
             result = Double(doubles.count)
@@ -222,7 +227,6 @@ class ViewController: UIViewController {
             return number * factorial(number: number - 1)
         }
     }
-    
 
 /*
    
