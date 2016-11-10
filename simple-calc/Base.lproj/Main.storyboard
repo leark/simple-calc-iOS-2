@@ -379,10 +379,10 @@
             </objects>
             <point key="canvasLocation" x="121.875" y="107.74647887323944"/>
         </scene>
-        <!--Scroll View Controller-->
+        <!--History View Controller-->
         <scene sceneID="rgj-e9-1GM">
             <objects>
-                <viewController id="AoF-ff-bBH" customClass="ScrollViewController" customModule="simple_calc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AoF-ff-bBH" customClass="HistoryViewController" customModule="simple_calc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G9P-CV-Qat"/>
                         <viewControllerLayoutGuide type="bottom" id="7pj-pn-RML"/>
@@ -391,9 +391,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIo-bM-16a">
-                                <frame key="frameInset" minX="16" minY="20" width="288" height="500"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIo-bM-16a">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvT-S0-X1B">
                                 <constraints>
@@ -402,7 +405,7 @@
                                 </constraints>
                                 <state key="normal" image="calc"/>
                                 <connections>
-                                    <action selector="backToCalc:" destination="AoF-ff-bBH" eventType="touchUpInside" id="noB-5b-qHy"/>
+                                    <action selector="backToCalc:" destination="AoF-ff-bBH" eventType="touchUpInside" id="8zc-Zg-hRE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehn-Z8-xhT">
@@ -413,12 +416,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7pj-pn-RML" firstAttribute="top" secondItem="yIo-bM-16a" secondAttribute="bottom" constant="48" id="7D9-gu-Hqx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yIo-bM-16a" secondAttribute="leading" id="94B-0p-4EX"/>
                             <constraint firstItem="ehn-Z8-xhT" firstAttribute="leading" secondItem="qvT-S0-X1B" secondAttribute="trailing" constant="8" id="NGL-9A-HlS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yIo-bM-16a" secondAttribute="trailing" id="Uo6-fi-HlW"/>
+                            <constraint firstItem="yIo-bM-16a" firstAttribute="top" secondItem="G9P-CV-Qat" secondAttribute="bottom" id="VYI-Dt-66v"/>
                             <constraint firstItem="7pj-pn-RML" firstAttribute="top" secondItem="qvT-S0-X1B" secondAttribute="bottom" constant="20" id="gE7-5e-tJ5"/>
                             <constraint firstItem="qvT-S0-X1B" firstAttribute="leading" secondItem="oKZ-pG-8xu" secondAttribute="leadingMargin" constant="22" id="gbn-eX-obY"/>
                             <constraint firstItem="7pj-pn-RML" firstAttribute="top" secondItem="ehn-Z8-xhT" secondAttribute="bottom" constant="20" id="sws-ka-R98"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="yIo-bM-16a" id="cl0-l4-rH4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8S-9J-vkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

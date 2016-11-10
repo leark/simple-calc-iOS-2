@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     private var lastResult = false
     private let normalPolan = #imageLiteral(resourceName: "Polandball")
     private let notNormalPolan = #imageLiteral(resourceName: "Polandball2")
-    private var history = ""
+    var history = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,11 @@ class ViewController: UIViewController {
         enter.isEnabled = false
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! HistoryViewController
+        controller.history = history
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -173,30 +178,38 @@ class ViewController: UIViewController {
     
     // mod by 0 
     // divide by 0
-    // 
+    // adding to history when operation is 0 + 0 or 0 - 0...
     @IBAction func calculate(_ sender: AnyObject) {
         //hotfix 
         
         currentOperator.text = "="
-    
-        let num2 = doubles.popLast()!
-        let num1 = doubles.popLast()!
+        var num2 = 0.0
+        var num1 = 0.0
+        
+        if doubles.count >= 2 {
+            num2 = doubles.popLast()!
+            num1 = doubles.popLast()!
+        }
         
         doubles.append(num1)
         doubles.append(num2)
  
         switch pressedOperator {
         case "+":
-            history = history + ""
             result = num1 + num2
+            history.append("\(num1) + \(num2) = \(result)")
         case "-":
             result = num1 - num2
+            history.append("\(num1) - \(num2) = \(result)")
         case "*":
             result = num1 * num2
+            history.append("\(num1) * \(num2) = \(result)")
         case "/":
             result = num1 / num2
+            history.append("\(num1) / \(num2) = \(result)")
         case "%":
             result = fmod(num1, num2)
+            history.append("\(num1) % \(num2) = \(result)")
         case "count":
             result = Double(doubles.count)
         case "avg":
